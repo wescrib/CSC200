@@ -1,0 +1,31 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
+
+import javax.swing.JOptionPane;
+import javax.swing.JDialog;
+
+public class CreditCards {
+
+	public static void main(String[] args) {
+		Scanner keyboard = new Scanner(System.in);
+		System.out.println("Enter credit card number");
+		long ccNo = keyboard.nextLong();
+		String ccString = String.valueOf(ccNo); //turns long into string
+		
+		if (ccString.matches("4[0-9]{12}(?:[0-9]{3})?)")) {
+			
+			//basically lets java discover my screen resolution
+			GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+			int width = gd.getDisplayMode().getWidth();
+			int height = gd.getDisplayMode().getHeight();
+			
+			JOptionPane pane = new JOptionPane("OH MY FUCK IT WORKED");
+			JDialog dialog = pane.createDialog(null, "jesus");
+			dialog.setLocation(width-500, height-500);
+			dialog.setVisible(true);
+		}
+		System.out.println("Complete");
+	}
